@@ -44,8 +44,8 @@ app.post('/send-otp', async (req, res) => {
 
     res.send({ message: 'OTP sent successfully' });
   } catch (err) {
-    console.error(err);
-    res.status(500).send({ error: 'Failed to send OTP' });
+    console.error('❌ OTP email error:', err.message, err.stack);
+res.status(500).send({ error: err.message });
   }
 });
 
